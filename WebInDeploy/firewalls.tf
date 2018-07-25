@@ -50,42 +50,42 @@ resource "aws_network_interface" "FW1-MGT" {
   subnet_id         = "${aws_subnet.AZ1-MGT.id}"
   security_groups   = ["${aws_security_group.sgWideOpen.id}"]
   source_dest_check = false
-  private_ips       = ["10.0.0.10"]
+  private_ips       = ["${var.FW1_mgmt_IP}"]
 }
 
 resource "aws_network_interface" "FW1-UNTRUST" {
   subnet_id         = "${aws_subnet.AZ1-UNTRUST.id}"
   security_groups   = ["${aws_security_group.sgWideOpen.id}"]
   source_dest_check = false
-  private_ips       = ["10.0.1.10"]
+  private_ips       = ["${var.FW1_Untrust_IP}"]
 }
 
 resource "aws_network_interface" "FW1-TRUST" {
   subnet_id         = "${aws_subnet.AZ1-TRUST.id}"
   security_groups   = ["${aws_security_group.sgWideOpen.id}"]
   source_dest_check = false
-  private_ips       = ["10.0.2.10"]
+  private_ips       = ["${var.FW1_Trust_IP}"]
 }
 
 resource "aws_network_interface" "FW2-MGT" {
   subnet_id         = "${aws_subnet.AZ2-MGT.id}"
   security_groups   = ["${aws_security_group.sgWideOpen.id}"]
   source_dest_check = false
-  private_ips       = ["10.0.10.10"]
+  private_ips       = ["${var.FW2_mgmt_IP}"]
 }
 
 resource "aws_network_interface" "FW2-UNTRUST" {
   subnet_id         = "${aws_subnet.AZ2-UNTRUST.id}"
   security_groups   = ["${aws_security_group.sgWideOpen.id}"]
   source_dest_check = false
-  private_ips       = ["10.0.11.10"]
+  private_ips       = ["${var.FW2_Untrust_IP}"]
 }
 
 resource "aws_network_interface" "FW2-TRUST" {
   subnet_id         = "${aws_subnet.AZ2-TRUST.id}"
   security_groups   = ["${aws_security_group.sgWideOpen.id}"]
   source_dest_check = false
-  private_ips       = ["10.0.12.10"]
+  private_ips       = ["${var.FW2_Trust_IP}"]
 }
 
 resource "aws_eip_association" "FW1-UNTRUST-Association" {

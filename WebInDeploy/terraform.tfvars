@@ -16,6 +16,18 @@ WebSRV1_AZ1_Trust = "10.0.2.50"
 
 WebSRV2_AZ2_Trust = "10.0.12.50"
 
+FW1_Untrust_IP = "10.0.1.10"
+
+FW1_Trust_IP = "10.0.2.10"
+
+FW1_mgmt_IP = "10.0.0.10"
+
+FW2_Untrust_IP = "10.0.11.10"
+
+FW2_Trust_IP = "10.0.12.10"
+
+FW2_mgmt_IP = "10.0.10.10"
+
 StackName = "vv-2t"
 
 VPCCIDR = "10.0.0.0/16"

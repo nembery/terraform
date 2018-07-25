@@ -10,10 +10,13 @@ variable "WebCIDR_MGMT1" {}
 variable "WebCIDR_MGMT2" {}
 variable "WebSRV1_AZ1_Trust" {}
 variable "WebSRV2_AZ2_Trust" {}
-
-#variable "PublicCIDR_Block" {}
+variable "FW1_Untrust_IP" {}
+variable "FW1_Trust_IP" {}
+variable "FW1_mgmt_IP" {}
+variable "FW2_Untrust_IP" {}
+variable "FW2_Trust_IP" {}
+variable "FW2_mgmt_IP" {}
 variable "MasterS3Bucket" {}
-
 variable "VPCName" {}
 variable "VPCCIDR" {}
 variable "ServerKeyName" {}
