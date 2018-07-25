@@ -1,14 +1,14 @@
 provider "panos" {
   hostname = "${var.mgt-ipaddress-fw1}"
-  username = "admin"
-  password = "PaloAlt0!123!!"
+  username = "${var.username}"
+  password = "${var.password}"
 }
 
 provider "panos" {
   alias    = "fw2"
   hostname = "${var.mgt-ipaddress-fw2}"
-  username = "admin"
-  password = "PaloAlt0!123!!"
+  username = "${var.username}"
+  password = "${var.password}"
 }
 
 resource "panos_general_settings" "fw1" {
@@ -159,17 +159,17 @@ resource "panos_security_policies" "security_policies" {
   }
 
   rule {
-    name                  = "Log default deny"
-    source_zones          = ["any"]
+    name                  = "Permit Health Checks"
+    source_zones          = ["${panos_zone.zone_untrust.name}"]
     source_addresses      = ["any"]
     source_users          = ["any"]
     hip_profiles          = ["any"]
-    destination_zones     = ["any"]
+    destination_zones     = ["${panos_zone.zone_trust.name}"]
     destination_addresses = ["any"]
-    applications          = ["any"]
+    applications          = ["elb-healthchecker"]
     services              = ["application-default"]
     categories            = ["any"]
-    action                = "deny"
+    action                = "allow"
   }
 }
 
@@ -183,6 +183,7 @@ resource "panos_nat_policy" "nat1" {
   sat_type              = "dynamic-ip-and-port"
   sat_address_type      = "interface-address"
   sat_interface         = "${panos_ethernet_interface.eth1_2.name}"
+  dat_type              = "static"
   dat_address           = "10.0.2.50"
   dat_port              = "22"
 }
@@ -202,7 +203,7 @@ resource "panos_nat_policy" "nat2" {
 }
 
 resource "panos_nat_policy" "nat3" {
-  name                  = "Webserver1 NAT"
+  name                  = "Webserver NAT"
   source_zones          = ["${panos_zone.zone_untrust.name}"]
   destination_zone      = "${panos_zone.zone_untrust.name}"
   service               = "service-http"
@@ -211,7 +212,8 @@ resource "panos_nat_policy" "nat3" {
   sat_type              = "dynamic-ip-and-port"
   sat_address_type      = "interface-address"
   sat_interface         = "${panos_ethernet_interface.eth1_2.name}"
-  dat_address           = "${var.nlbprivate-address-fw1}"
+  dat_type              = "dynamic"
+  dat_address           = "AWS-Int-NLB"
   dat_port              = "80"
 }
 
@@ -368,17 +370,17 @@ resource "panos_security_policies" "security_policiesa2" {
   }
 
   rule {
-    name                  = "Log default deny"
-    source_zones          = ["any"]
+    name                  = "Permit Health Checks"
+    source_zones          = ["${panos_zone.zone_untrust.name}"]
     source_addresses      = ["any"]
     source_users          = ["any"]
     hip_profiles          = ["any"]
-    destination_zones     = ["any"]
+    destination_zones     = ["${panos_zone.zone_trust.name}"]
     destination_addresses = ["any"]
-    applications          = ["any"]
+    applications          = ["elb-healthchecker"]
     services              = ["application-default"]
     categories            = ["any"]
-    action                = "deny"
+    action                = "allow"
   }
 }
 
@@ -423,7 +425,8 @@ resource "panos_nat_policy" "nat3a2" {
   sat_type              = "dynamic-ip-and-port"
   sat_address_type      = "interface-address"
   sat_interface         = "${panos_ethernet_interface.eth1_2.name}"
-  dat_address           = "${var.nlbprivate-address-fw2}"
+  dat_type              = "dynamic"
+  dat_address           = "AWS-Int-NLB"
   dat_port              = "80"
 }
 
