@@ -184,7 +184,7 @@ resource "panos_nat_policy" "nat1" {
   sat_address_type      = "interface-address"
   sat_interface         = "${panos_ethernet_interface.eth1_2.name}"
   dat_type              = "static"
-  dat_address           = "10.0.2.50"
+  dat_address           = "${var.WebSrv1_IP}"
   dat_port              = "22"
 }
 
@@ -198,7 +198,7 @@ resource "panos_nat_policy" "nat2" {
   sat_type              = "dynamic-ip-and-port"
   sat_address_type      = "interface-address"
   sat_interface         = "${panos_ethernet_interface.eth1_2.name}"
-  dat_address           = "10.0.12.50"
+  dat_address           = "${var.WebSrv2_IP}"
   dat_port              = "22"
 }
 
@@ -395,7 +395,7 @@ resource "panos_nat_policy" "nat1a2" {
   sat_type              = "dynamic-ip-and-port"
   sat_address_type      = "interface-address"
   sat_interface         = "${panos_ethernet_interface.eth1_2.name}"
-  dat_address           = "10.0.2.50"
+  dat_address           = "${var.WebSrv1_IP}"
   dat_port              = "22"
 }
 
@@ -410,7 +410,7 @@ resource "panos_nat_policy" "nat2a2" {
   sat_type              = "dynamic-ip-and-port"
   sat_address_type      = "interface-address"
   sat_interface         = "${panos_ethernet_interface.eth1_2.name}"
-  dat_address           = "10.0.12.50"
+  dat_address           = "${var.WebSrv2_IP}"
   dat_port              = "22"
 }
 
