@@ -2,7 +2,7 @@ resource "aws_network_interface" "web1-int" {
   subnet_id         = "${aws_subnet.AZ1-TRUST.id}"
   security_groups   = ["${aws_security_group.sgWideOpen.id}"]
   source_dest_check = false
-  private_ips       = ["10.0.2.50"]
+  private_ips       = ["${var.WebSRV1_AZ1_Trust}"]
 }
 
 resource "aws_instance" "web1" {
@@ -32,7 +32,7 @@ resource "aws_network_interface" "web2-int" {
   subnet_id         = "${aws_subnet.AZ2-TRUST.id}"
   security_groups   = ["${aws_security_group.sgWideOpen.id}"]
   source_dest_check = false
-  private_ips       = ["10.0.12.50"]
+  private_ips       = ["${var.WebSRV2_AZ2_Trust}"]
 }
 
 resource "aws_instance" "web2" {

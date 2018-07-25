@@ -1,8 +1,19 @@
 data "aws_availability_zones" "available" {}
 variable "aws_region" {}
-variable "WebCIDR_Block" {}
-variable "PublicCIDR_Block" {}
+variable "aws_access_key" {}
+variable "aws_secret_key" {}
+variable "WebCIDR_TrustBlock1" {}
+variable "WebCIDR_TrustBlock2" {}
+variable "WebCIDR_UntrustBlock1" {}
+variable "WebCIDR_UntrustBlock2" {}
+variable "WebCIDR_MGMT1" {}
+variable "WebCIDR_MGMT2" {}
+variable "WebSRV1_AZ1_Trust" {}
+variable "WebSRV2_AZ2_Trust" {}
+
+#variable "PublicCIDR_Block" {}
 variable "MasterS3Bucket" {}
+
 variable "VPCName" {}
 variable "VPCCIDR" {}
 variable "ServerKeyName" {}
