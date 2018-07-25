@@ -22,9 +22,9 @@ VPCCIDR = "10.0.0.0/16"
 
 aws_region = "us-west-2"
 
-ServerKeyName = "jfranklin2"
+ServerKeyName = "Put your AWS keypair here"
 
-MasterS3Bucket = "jfgeneric1"
+MasterS3Bucket = "S3 Bootstrap bucket name here"
 
 aws_access_key = "Put you key here"
 
