@@ -32,12 +32,12 @@ StackName = "vv-2t"
 
 VPCCIDR = "10.0.0.0/16"
 
-aws_region = "us-west-2"
+aws_region = "Place Region Here"
 
-ServerKeyName = "Put your AWS keypair here"
+ServerKeyName = "Place Keypair Here"
 
-MasterS3Bucket = "S3 Bootstrap bucket name here"
+MasterS3Bucket = "Place S3 Bucket Here"
 
-aws_access_key = "Put you key here"
+aws_access_key = "Palce Access Key Here"
 
-aws_secret_key = "Put your key here"
+aws_secret_key = "Place Secret Key Here"

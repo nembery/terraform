@@ -1,6 +1,6 @@
-username = "admin"
+username = "Place Username Here"
 
-password = "Place Password here"
+password = "Place Password Here"
 
 untrust-ipaddress-fw1 = "10.0.1.10"
 

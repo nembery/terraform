@@ -8,7 +8,7 @@ resource "aws_network_interface" "web1-int" {
 resource "aws_instance" "web1" {
   instance_initiated_shutdown_behavior = "stop"
   ami                                  = "${var.UbuntuRegionMap[var.aws_region]}"
-  instance_type                        = "m1.small"
+  instance_type                        = "m3.large"
   key_name                             = "${var.ServerKeyName}"
   monitoring                           = false
 
@@ -38,7 +38,7 @@ resource "aws_network_interface" "web2-int" {
 resource "aws_instance" "web2" {
   instance_initiated_shutdown_behavior = "stop"
   ami                                  = "${var.UbuntuRegionMap[var.aws_region]}"
-  instance_type                        = "m1.small"
+  instance_type                        = "m3.large"
 
   key_name   = "${var.ServerKeyName}"
   monitoring = false

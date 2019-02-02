@@ -17,7 +17,7 @@ resource "panos_ethernet_interface" "eth1_1a2" {
   mode               = "layer3"
   comment            = "External interface"
   enable_dhcp        = true
-  management_profile = "${panos_management_profile.imp_allow_ping.name}"
+  management_profile = "${panos_management_profile.imp_allow_pinga2.name}"
 }
 
 resource "panos_ethernet_interface" "eth1_2a2" {
@@ -72,10 +72,11 @@ resource "panos_service_object" "so_81a2" {
 }
 
 resource "panos_address_object" "intNLB2" {
-  provider = "panos.fw2"
-  name     = "AWS-Int-NLB"
-  type     = "fqdn"
-  value    = "${var.int-nlb-fqdn}"
+  provider    = "panos.fw2"
+  name        = "AWS-Int-NLB"
+  type        = "fqdn"
+  value       = "${var.int-nlb-fqdn}"
+  description = "AWS Int NLB Address"
 }
 
 resource "panos_security_policies" "security_policiesa2" {
@@ -217,5 +218,5 @@ resource "panos_nat_policy" "nat3a2" {
 resource "panos_virtual_router" "vr1a2" {
   provider   = "panos.fw2"
   name       = "default"
-  interfaces = ["${panos_ethernet_interface.eth1_1.name}", "${panos_ethernet_interface.eth1_2.name}"]
+  interfaces = ["${panos_ethernet_interface.eth1_1a2.name}", "${panos_ethernet_interface.eth1_2a2.name}"]
 }

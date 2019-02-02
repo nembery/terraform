@@ -1,5 +1,5 @@
-resource "aws_iam_role" "FirewallBootstrapRole2Tier" {
-  name = "FirewallBootstrapRole2Tier"
+resource "aws_iam_role" "FirewallBootstrapRole" {
+  name = "FirewallBootstrapRole"
 
   assume_role_policy = <<EOF
 {
@@ -17,9 +17,9 @@ resource "aws_iam_role" "FirewallBootstrapRole2Tier" {
 EOF
 }
 
-resource "aws_iam_role_policy" "FirewallBootstrapRolePolicy2Tier" {
-  name = "FirewallBootstrapRolePolicy2Tier"
-  role = "${aws_iam_role.FirewallBootstrapRole2Tier.id}"
+resource "aws_iam_role_policy" "FirewallBootstrapRolePolicy" {
+  name = "FirewallBootstrapRolePolicy"
+  role = "${aws_iam_role.FirewallBootstrapRole.id}"
 
   policy = <<EOF
 {
@@ -41,8 +41,8 @@ EOF
 }
 
 resource "aws_iam_instance_profile" "FirewallBootstrapInstanceProfile2Tier" {
-  name = "FirewallBootstrapInstanceProfile2Tier"
-  role = "${aws_iam_role.FirewallBootstrapRole2Tier.name}"
+  name = "FirewallBootstrapInstanceProfile"
+  role = "${aws_iam_role.FirewallBootstrapRole.name}"
   path = "/"
 }
 
@@ -50,42 +50,42 @@ resource "aws_network_interface" "FW1-MGT" {
   subnet_id         = "${aws_subnet.AZ1-MGT.id}"
   security_groups   = ["${aws_security_group.sgWideOpen.id}"]
   source_dest_check = false
-  private_ips       = ["${var.FW1_mgmt_IP}"]
+  private_ips       = ["10.0.0.10"]
 }
 
 resource "aws_network_interface" "FW1-UNTRUST" {
   subnet_id         = "${aws_subnet.AZ1-UNTRUST.id}"
   security_groups   = ["${aws_security_group.sgWideOpen.id}"]
   source_dest_check = false
-  private_ips       = ["${var.FW1_Untrust_IP}"]
+  private_ips       = ["10.0.1.10"]
 }
 
 resource "aws_network_interface" "FW1-TRUST" {
   subnet_id         = "${aws_subnet.AZ1-TRUST.id}"
   security_groups   = ["${aws_security_group.sgWideOpen.id}"]
   source_dest_check = false
-  private_ips       = ["${var.FW1_Trust_IP}"]
+  private_ips       = ["10.0.2.10"]
 }
 
 resource "aws_network_interface" "FW2-MGT" {
   subnet_id         = "${aws_subnet.AZ2-MGT.id}"
   security_groups   = ["${aws_security_group.sgWideOpen.id}"]
   source_dest_check = false
-  private_ips       = ["${var.FW2_mgmt_IP}"]
+  private_ips       = ["10.0.10.10"]
 }
 
 resource "aws_network_interface" "FW2-UNTRUST" {
   subnet_id         = "${aws_subnet.AZ2-UNTRUST.id}"
   security_groups   = ["${aws_security_group.sgWideOpen.id}"]
   source_dest_check = false
-  private_ips       = ["${var.FW2_Untrust_IP}"]
+  private_ips       = ["10.0.11.10"]
 }
 
 resource "aws_network_interface" "FW2-TRUST" {
   subnet_id         = "${aws_subnet.AZ2-TRUST.id}"
   security_groups   = ["${aws_security_group.sgWideOpen.id}"]
   source_dest_check = false
-  private_ips       = ["${var.FW2_Trust_IP}"]
+  private_ips       = ["10.0.12.10"]
 }
 
 resource "aws_eip_association" "FW1-UNTRUST-Association" {
