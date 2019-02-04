@@ -1,0 +1,37 @@
+# full_panos is used to load a full NGFW configuration
+
+# snippet folder name
+name: aws_autoscale_demo_config
+# label used for menu selection
+label: AWS Non AutoScale Demo Config
+description: AWS None AutoScale Demo Config
+dependency:
+# type of device configuration
+type: template
+extends:
+
+# grouping of like snippets for dynamic menu creation in pan-cnc
+labels:
+  service_type: aws_template_full
+  template_category: panos_full
+
+# variables used in the configuration templates
+# type_hint defines the form field type in pan-cnc
+variables:
+  - name: FW_NAME
+    description: Firewall hostname
+    default: panos-01
+    type_hint: text
+  - name: ADMINISTRATOR_USERNAME
+    description: admin username
+    default: admin
+    type_hint: text
+  - name: ADMINISTRATOR_PASSWORD
+    description: admin password
+    default: admin
+    type_hint: text
+
+
+snippets:
+  - name: bootstrap_xml
+    file: bootstrap.xml.j2
