@@ -1,0 +1,36 @@
+
+name: aws-nonauto-scale-config
+label: AWS Non-AutoScale Post Deploy Config
+description: Configure AWS Non AutoScale
+type: terraform
+extends:
+
+# Note the variable names should match between variables.tf and .meta-cnc.yaml
+#username = "Place Username Here"
+#password = "Place Password Here"
+#untrust-ipaddress-fw1 = "10.0.1.10"
+#untrust-ipaddress-fw2 = "10.0.11.10"
+#WebSrv1_IP = "10.0.2.50"
+#WebSrv2_IP = "10.0.12.50"
+
+labels:
+  service_type: aws_terraform
+
+variables:
+  - name: username
+    description: Firewall Config Username
+    default: admin
+    type_hint: text
+  - name: password
+    description: Firewall Config Password
+    default:
+    type_hint: password
+  - name: untrust-ipaddress-fw1
+    description: Firewall 1 MGT IP
+    default: 1.2.3.4
+    type_hint: ip_address
+  - name: untrust-ipaddress-fw2
+    description: Firewall 2 MGT IP
+    default: 5.6.7.8
+    type_hint: ip_address
+
