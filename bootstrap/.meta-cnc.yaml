@@ -25,7 +25,7 @@ variables:
   - name: ADMINISTRATOR_USERNAME
     description: admin username
     default: admin
-    type_hint: text
+    type_hint: password
   - name: ADMINISTRATOR_PASSWORD
     description: admin password
     default: admin

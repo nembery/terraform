@@ -1,7 +1,7 @@
 
 name: aws-nonauto-scale
 label: AWS Non-AutoScale
-description: AWS Full Environment from
+description: AWS Non AutoScale Security Demo
 type: terraform
 extends:
 
