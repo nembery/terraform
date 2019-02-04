@@ -13,6 +13,8 @@ extends:
 #WebSrv1_IP = "10.0.2.50"
 #WebSrv2_IP = "10.0.12.50"
 #int-nlb-fqdn = "something.com"
+#mgt-ipaddress-fw1 = "1.2.3.4"
+#mgt-ipaddress-fw2 = "5.6.7.8"
 
 labels:
   service_type: aws_terraform
@@ -26,11 +28,11 @@ variables:
     description: Firewall Config Password
     default:
     type_hint: password
-  - name: untrust-ipaddress-fw1
+  - name: mgt-ipaddress-fw1
     description: Firewall 1 MGT IP
     default: 1.2.3.4
     type_hint: ip_address
-  - name: untrust-ipaddress-fw2
+  - name: mgt-ipaddress-fw2
     description: Firewall 2 MGT IP
     default: 5.6.7.8
     type_hint: ip_address
