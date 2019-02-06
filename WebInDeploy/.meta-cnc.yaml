@@ -1,6 +1,6 @@
 
 name: aws-nonauto-scale
-label: AWS Infrastructure Jenkins Exploit
+label: Step 1 AWS Infrastructure Jenkins Exploit
 description: AWS Infrastructure Jenkins Exploit
 type: terraform
 extends:

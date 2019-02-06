@@ -1,6 +1,6 @@
 
 name: aws-nonauto-scale-config
-label: Pan-OS configuration for Jenkins Exploit
+label: Step 2 Pan-OS configuration for Jenkins Exploit
 description: Pan-OS configuration for Jenkins Exploit
 type: terraform
 extends:
