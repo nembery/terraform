@@ -25,11 +25,11 @@ variables:
   - name: ADMINISTRATOR_USERNAME
     description: admin username
     default: admin
-    type_hint: password
+    type_hint: text
   - name: ADMINISTRATOR_PASSWORD
     description: admin password
-    default: admin
-    type_hint: text
+    default:
+    type_hint: password
 
 
 snippets:
