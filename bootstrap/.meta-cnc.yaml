@@ -3,8 +3,8 @@
 # snippet folder name
 name: aws_autoscale_demo_config
 # label used for menu selection
-label: AWS Non AutoScale Demo Config
-description: AWS None AutoScale Demo Config
+label: Pan-OS Bootstrap for Jenkins Exploit
+description: Pan-OS Bootstrap for Jenkins Exploit
 dependency:
 # type of device configuration
 type: template
