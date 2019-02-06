@@ -1,7 +1,7 @@
 
 name: aws-nonauto-scale
-label: AWS Non-AutoScale
-description: AWS Non AutoScale Security Demo
+label: AWS Infrastructure Jenkins Exploit
+description: AWS Infrastructure Jenkins Exploit
 type: terraform
 extends:
 

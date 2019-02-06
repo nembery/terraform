@@ -1,7 +1,7 @@
 
 name: aws-nonauto-scale-config
-label: AWS Non-AutoScale Post Deploy Config
-description: Configure AWS Non AutoScale
+label: Pan-OS configuration for Jenkins Exploit
+description: Pan-OS configuration for Jenkins Exploit
 type: terraform
 extends:
 
